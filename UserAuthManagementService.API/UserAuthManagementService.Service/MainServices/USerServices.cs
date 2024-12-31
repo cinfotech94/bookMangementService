@@ -23,6 +23,7 @@ using Google.Type;
 using System.Data;
 using System.Net;
 using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UserAuthManagementService.Service.MainServices
 {
@@ -299,7 +300,7 @@ namespace UserAuthManagementService.Service.MainServices
                 }
                 else
                 {
-                    User user = new User()
+                    UserDTO user = new UserDTO()
                     {
                         name=updateUser.name,
                         username=updateUser.username,
@@ -310,7 +311,6 @@ namespace UserAuthManagementService.Service.MainServices
                         city=updateUser.city,
                         state=updateUser.state,
                         country=updateUser.country,
-                        balance=updateUser.balance,
                         password= _encryptionService.Encrypt(updateUser.Password, updateUser.username + _cardServiceencryptkey),
                     };
                     var (response, responseExcpetion) = await _userRepository.UpdateUserAsync(user);
@@ -382,7 +382,7 @@ namespace UserAuthManagementService.Service.MainServices
                         user.password = _encryptionService.Encrypt(password, username + _cardServiceencryptkey);
                         string resetPasswordUrl = password;
                         var updateUser = await _userRepository.UpdateUserAsync(user);
-                        await _mailerService.SendEmail(user.email, "book management Services", "Resetting Your Password", $"Your new password will {password}. we advice you to please change the password to your custom password.");
+                        await _mailerService.SendEmail(user.email, "book management Services Resetting Your Password", $"Your new password will {password}. we advice you to please change the password to your custom password.", caller, corelationId);
                         await _loggingService.LogInformation($"reset password succesful due to data supply: {username}", caller, corelationId); 
                         return new GenericResponse<string>
                         {
@@ -474,7 +474,7 @@ namespace UserAuthManagementService.Service.MainServices
             }
         }
 
-        public async Task<GenericResponse<User>> GetUserByUsername(string username, string caller, string corelationId)
+        public async Task<GenericResponse<UserResponseDto>> GetUserByUsername(string username, string caller, string corelationId)
         {
             caller += nameof(GetUserByUsername);
             try
@@ -483,21 +483,34 @@ namespace UserAuthManagementService.Service.MainServices
                 if(response.Item1==null||response.Item2!=null)
                 {
                     await _loggingService.LogInformation($"Gettinf user  is not succesful for: {username} ", caller, corelationId);
-                    return new GenericResponse<User>
+                    return new GenericResponse<UserResponseDto>
                     {
                         status = false,
                         message = "user not found",// Join error messages
-                        data = default(User),// Join error messages
+                        data =default( UserResponseDto)
                     };
                 }
                 else
                 {
                     await _loggingService.LogInformation($"Gettinf user  is succesful for: {username} ", caller, corelationId);
-                    return new GenericResponse<User>
+                    return new GenericResponse<UserResponseDto>
                     {
                         status = true,
                         message = "use found",// Join error messages
-                        data = response.Item1,// Join error messages
+                        data =new UserResponseDto()
+                        {
+                            name = response.Item1.name,
+                            username = response.Item1.username,
+                            email = response.Item1.email,
+                            role = response.Item1.role,
+                            phoneNumber = response.Item1.phoneNumber,
+                            address = response.Item1.address,
+                            city = response.Item1.city,
+                            state = response.Item1.state,
+                            country = response.Item1.country,
+                            balance = response.Item1.balance,
+                            Id = response.Item1.id
+                        },// Join error messages,// Join error messages
                     };
                 }
 
@@ -505,7 +518,7 @@ namespace UserAuthManagementService.Service.MainServices
             catch (Exception ex)
             {
                 await _loggingService.LogError($"Gettinf user  is failed for: {username} ", caller, ex, corelationId);
-                return new GenericResponse<User>
+                return new GenericResponse<UserResponseDto>
                 {
                     status = true,
                     message = "use found",// Join error messages

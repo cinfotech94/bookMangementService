@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using UserAuthManagementService.Domain.DTO.Request;
 using UserAuthManagementService.Service.MainServices;
+using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UserAuthManagementService.Service.RabbitMQServices;
 public class RequestConsumer : IConsumer<RequestMessage>
@@ -14,10 +16,10 @@ public class RequestConsumer : IConsumer<RequestMessage>
     private readonly IServiceProvider _serviceProvider;
     private readonly IUserServices _userServices;
 
-    public RequestConsumer(IServiceProvider serviceProvider, IUserServices userServices)
+    public RequestConsumer(IServiceProvider serviceProvider)
     {
         _serviceProvider = serviceProvider;
-        _userServices = userServices;
+        _userServices = _serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IUserServices>();
     }
 
     public async Task Consume(ConsumeContext<RequestMessage> context)

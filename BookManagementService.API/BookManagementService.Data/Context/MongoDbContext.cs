@@ -13,9 +13,7 @@ public class MongoDbContext
     private readonly bool _isAudit;
 
     public IMongoCollection<InboundLog> InboundLogs { get; private set; }
-    public IMongoCollection<Audit> Audits { get; private set; }
-
-    public MongoDbContext(IMongoClient mongoClient, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
+        public MongoDbContext(IMongoClient mongoClient, IConfiguration configuration, IHttpContextAccessor httpContextAccessor)
     {
         _configuration = configuration;
         _httpContextAccessor = httpContextAccessor;
@@ -29,6 +27,5 @@ public class MongoDbContext
 
         // Assign the collection based on the dynamically determined name
         InboundLogs = database.GetCollection<InboundLog>(collectionName+"inboundLogs");
-        Audits = database.GetCollection<Audit>(collectionName + "Audit");
     }
 }

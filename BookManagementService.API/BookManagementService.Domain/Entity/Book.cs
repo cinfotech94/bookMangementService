@@ -23,6 +23,6 @@ namespace BookManagementService.Domain.Entity;
         public string description { get; set; }
         public string category { get; set; }
         public int noClick { get; set; }
-        public int noOfPPurchase { get; set; }
+        public int noOfPurchase { get; set; }
         public int noOfCart { get; set; }
     }

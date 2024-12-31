@@ -3,6 +3,7 @@ using BookManagementService.Service.GenericServices.Interface;
 using static System.Formats.Asn1.AsnWriter;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
+using System;
 
 namespace BookManagementService.Service.GenericServices.Implemetation;
 public class IpService:IIpService
@@ -35,7 +36,7 @@ public class IpService:IIpService
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex.ToString(),nameof(GetIp),ex);
+            _logger.LogError(ex.ToString(),nameof(GetIp), ex,Guid.NewGuid().ToString());
         }
         return ip;
     }

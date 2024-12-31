@@ -106,7 +106,7 @@ public class EncryptionService: IEncryptionService
         }
         catch (Exception ex)
         {
-            _loggingService.LogError(ex.ToString(),nameof(Maskpan),ex);
+            _loggingService.LogError(ex.ToString(),nameof(Maskpan),ex, Guid.NewGuid().ToString());
             return ("0", ex);
         }
         return (pan,null);

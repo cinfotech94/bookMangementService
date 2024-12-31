@@ -8,27 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace UserAuthManagementService.Service.RabbitMQServices;
-public class RequestPublish
+public class BookRequestPublish
 {
+    private readonly IRequestClient<RequestMessage> _requestClient;
 
-    private readonly IBus _bus;
-
-    public RequestPublish(IBus bus)
+    public BookRequestPublish(IBus bus)
     {
-        _bus = bus;
+        // Specify the target queue name for the request
+        var serviceAddress = new Uri("exchange:book-service");
+        _requestClient = bus.CreateRequestClient<RequestMessage>(serviceAddress);
     }
 
-    public async Task SendRequestMessageAsync(string methodName, object? payload, string targetServiceQueue)
+    public async Task SendRequestMessageAsync(string methodName, object? payload)
     {
         var requestMessage = new RequestMessage
         {
             MethodName = methodName,
             Payload = payload,
-             caller="user"
+            caller = "payment-queue",
         };
 
-        // Send the message to the RabbitMQ exchange
-        var response = await _bus.Request<RequestMessage, ResponseMessage>(requestMessage, targetServiceQueue);
+        // Send the request and await the response
+        var response = await _requestClient.GetResponse<ResponseMessage>(requestMessage);
 
         // Handle the response
         Console.WriteLine($"Response received: {response.Message.MethodName}");

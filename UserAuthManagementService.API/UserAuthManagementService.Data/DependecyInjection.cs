@@ -26,6 +26,7 @@ public static class DependecyInjection
         });
         services.AddScoped<IInboundLogRepository, InboundLogRepository>();
         services.AddScoped<IAuditRepository, AuditRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 }
 

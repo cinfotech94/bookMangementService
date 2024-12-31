@@ -14,7 +14,7 @@ namespace UserAuthManagementService.Service.MainServices
     {
         Task<GenericResponse<string>> ChangeBalanceUser(string username, double amount, string caller, string corelationId);
         Task<GenericResponse<string>> AuditUser(AuditDTO request, string caller, string corelationId);
-        Task<GenericResponse<User>> GetUserByUsername(string username, string caller, string corelationId);
+        Task<GenericResponse<UserResponseDto>> GetUserByUsername(string username, string caller, string corelationId);
         Task<GenericResponse<string>> ChangePassword(string username, string oldPassword, string newPassword, string caller, string corelationId);
         Task<GenericResponse<string>> ResetPassword(string username, string caller, string corelationId);
         Task<GenericResponse<string>> UodateUser(UserDto updateUser, string caller, string corelationId);

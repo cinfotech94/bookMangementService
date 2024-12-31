@@ -29,8 +29,8 @@ namespace ThirdPartyCardAPIs.API.Extensions
                 })
 .AddApiExplorer(options =>
 {
-options.GroupNameFormat = "'v'V"; // This will group by API version e.g. v1, v2
-options.SubstituteApiVersionInUrl = true; // Adds version to URL
+    options.GroupNameFormat = "'v'V"; // This will group by API version e.g. v1, v2
+    options.SubstituteApiVersionInUrl = true; // Adds version to URL
 });
                 services.AddCors(options =>
             {
@@ -70,7 +70,6 @@ options.SubstituteApiVersionInUrl = true; // Adds version to URL
                 services.AddEndpointsApiExplorer();
                 services.AddSwaggerGen();
                 services.AddSwaggerConfiguration();
-                services.AddGrpc();
                 services.AddDataLayerService(configuration);
             services.AddServiceLayer(configuration);
             }

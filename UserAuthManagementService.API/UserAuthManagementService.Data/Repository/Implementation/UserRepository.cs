@@ -44,7 +44,6 @@ namespace UserAuthManagementService.Data.Repository.Implementation
                         user.city,
                         user.state,
                         user.country,
-                        user.balance,
                         user.Password
                     });
                     return (response, null);
@@ -76,7 +75,7 @@ namespace UserAuthManagementService.Data.Repository.Implementation
                 return (null, ex);
             }
         }
-        public async Task<(User, Exception)> GetUserByEmailUsernameAsync(string emailUsername)
+        public async Task<(UserDTO, Exception)> GetUserByEmailUsernameAsync(string emailUsername)
         {
             try
             {
@@ -86,7 +85,7 @@ namespace UserAuthManagementService.Data.Repository.Implementation
                           WHERE email = @UserId or username=@UserId";
                 using (var connection = _context.CreateConnection())
                 {
-                    var user = await connection.QueryFirstOrDefaultAsync<User>(query, new { UserId = emailUsername });
+                    var user = await connection.QueryFirstOrDefaultAsync<UserDTO>(query, new { UserId = emailUsername });
                     return (user, null);
                 }
             }
@@ -97,7 +96,7 @@ namespace UserAuthManagementService.Data.Repository.Implementation
         }
 
         // Update user details
-        public async Task<(int, Exception)> UpdateUserAsync(User user)
+        public async Task<(int, Exception)> UpdateUserAsync(UserDTO user)
         {
             try
             {

@@ -28,10 +28,10 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
-                var query = @"INSERT INTO books (id, title, ISBN, author, publicationYear, genre, quantity, price, pages, description, category, noClick, noOfPPurchase, noOfCart)
-                      VALUES (@Id, @Title, @ISBN, @Author, @PublicationYear, @Genre, @Quantity, @Price, @Pages, @Description, @Category, @NoClick, @NoOfPPurchase, @NoOfCart)";
+                var query = @"INSERT INTO books (id, title, ISBN, author, publicationYear, genre, quantity, price, pages, description, category, noClick, noOfPurchase, noOfCart)
+                      VALUES (@Id, @Title, @ISBN, @Author, @PublicationYear, @Genre, @Quantity, @Price, @Pages, @Description, @Category, @NoClick, @noOfPurchase, @NoOfCart)";
                 using (var connection = _context.CreateConnection())
                 {
                     int response = 0;
@@ -49,7 +49,7 @@ namespace BookManagementService.Data.Repository.Implementation
                         book.description,
                         book.category,
                         book.noClick,
-                        book.noOfPPurchase,
+                        book.noOfPurchase,
                         book.noOfCart
                     });
                     return (response, null);
@@ -63,19 +63,19 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(BookDTO, Exception)> GetBookByIdAsync(Guid id)
         {
-                var response = new BookDTO();
+            var response = new BookDTO();
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 var query = "SELECT * FROM books WHERE id = @Id";
-            using (var connection = _context.CreateConnection())
-            {
-                    response= await connection.QuerySingleOrDefaultAsync<BookDTO>(query, new { Id = id });
-                    return(response,null);
+                using (var connection = _context.CreateConnection())
+                {
+                    response = await connection.QuerySingleOrDefaultAsync<BookDTO>(query, new { Id = id });
+                    return (response, null);
+                }
             }
-            }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return (response, ex);
             }
@@ -87,27 +87,27 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new BookDTO();
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 var query = "SELECT * FROM books WHERE ISBN = @ISBN";
-            using (var connection = _context.CreateConnection())
-            {
-                response= await connection.QuerySingleOrDefaultAsync<BookDTO>(query, new { ISBN = isbn });
-                    return(response,null);
+                using (var connection = _context.CreateConnection())
+                {
+                    response = await connection.QuerySingleOrDefaultAsync<BookDTO>(query, new { ISBN = isbn });
+                    return (response, null);
+                }
             }
-            }
-            catch( Exception ex)
+            catch (Exception ex)
             {
-                return(response, ex);
+                return (response, ex);
             }
 
         }
-        public async Task<(List<BookDTO>, int, int, Exception)> GetBooksByAuthorAsync( string author, int pageNumber=1, int pageSize = 10, bool ascending = false, string sortBy = "noClick")
+        public async Task<(List<BookDTO>, int, int, Exception)> GetBooksByAuthorAsync(string author, int pageNumber = 1, int pageSize = 10, bool ascending = false, string sortBy = "noClick")
         {
             var response = new List<BookDTO>();
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -140,12 +140,12 @@ namespace BookManagementService.Data.Repository.Implementation
             }
         }
 
-        public async Task<(List<BookDTO>, int, int, Exception)> SearchBooksAsync(string searchText, int pageNumber=1, int pageSize = 10, bool ascending = false, string sortBy = "noClick")
+        public async Task<(List<BookDTO>, int, int, Exception)> SearchBooksAsync(string searchText, int pageNumber = 1, int pageSize = 10, bool ascending = false, string sortBy = "noClick")
         {
             var response = new List<BookDTO>();
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -190,7 +190,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new List<BookDTO>();
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -225,7 +225,7 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> UpdateBookAsync(BookDTO book)
         {
-            GetCachedData();
+            await GetCachedData();
 
             int response = 0;
             try
@@ -233,7 +233,7 @@ namespace BookManagementService.Data.Repository.Implementation
                 var query = @"UPDATE books
                       SET title = @Title, ISBN = @ISBN, author = @Author, publicationYear = @PublicationYear, genre = @Genre,
                           quantity = @Quantity, price = @Price, pages = @Pages, description = @Description, category = @Category,
-                          noClick = @NoClick, noOfPPurchase = @NoOfPPurchase, noOfCart = @NoOfCart
+                          noClick = @NoClick, noOfPurchase = @noOfPurchase, noOfCart = @NoOfCart
                       WHERE ISBN = @ISBN OR id = @Id";
                 using (var connection = _context.CreateConnection())
                 {
@@ -250,7 +250,7 @@ namespace BookManagementService.Data.Repository.Implementation
                         book.description,
                         book.category,
                         book.noClick,
-                        book.noOfPPurchase,
+                        book.noOfPurchase,
                         book.noOfCart,
                     });
                 }
@@ -264,15 +264,16 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> DeleteBookAsync(Guid id)
         {
-            GetCachedData();
+            await GetCachedData();
 
             int response = 0;
-            try { 
-            var query = "DELETE FROM books WHERE id = @Id";
-            using (var connection = _context.CreateConnection())
+            try
             {
-                response= await connection.ExecuteAsync(query, new { Id = id });
-            }
+                var query = "DELETE FROM books WHERE id = @Id";
+                using (var connection = _context.CreateConnection())
+                {
+                    response = await connection.ExecuteAsync(query, new { Id = id });
+                }
                 return (response, null);
             }
             catch (Exception ex)
@@ -283,16 +284,16 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> DeleteBookByISBNAsync(string isbn)
         {
-            GetCachedData();
+            await GetCachedData();
 
             var response = 0;
             try
             {
-            var query = "DELETE FROM books WHERE ISBN = @ISBN";
-            using (var connection = _context.CreateConnection())
-            {
-                response= await connection.ExecuteAsync(query, new { ISBN = isbn });
-            }
+                var query = "DELETE FROM books WHERE ISBN = @ISBN";
+                using (var connection = _context.CreateConnection())
+                {
+                    response = await connection.ExecuteAsync(query, new { ISBN = isbn });
+                }
                 return (response, null);
             }
             catch (Exception ex)
@@ -302,83 +303,67 @@ namespace BookManagementService.Data.Repository.Implementation
         }
         private async Task GetCachedData()
         {
-            string cacheKey = "databseExist";
+            string cacheKey = "BookdatabseExist2";
             if (!_memoryCache.TryGetValue(cacheKey, out string cachedData))
             {
-                // Data not in cache, fetch it
+
+                // Step 1: Create Books table if it does not exist
+                var createBooksTableQuery = @"
+                        CREATE TABLE IF NOT EXISTS Books (
+                            Id UUID PRIMARY KEY,
+                            Title VARCHAR(255),
+                            ISBN VARCHAR(255),
+                            Author VARCHAR(255),
+                            PublicationYear VARCHAR(4),
+                            TimeAdded TIMESTAMP,
+                            Genre VARCHAR(255),
+                            Quantity INT DEFAULT 1,
+                            Price FLOAT,
+                            Pages INT,
+                            Description VARCHAR(1000),
+                            Category VARCHAR(255),
+                            NoClick INT DEFAULT 0,
+                            NoOfPurchase INT DEFAULT 0,
+                            NoOfCart INT DEFAULT 0
+                        );";
+
+                var createCartsTableQuery = @"
+                        CREATE TABLE IF NOT EXISTS Carts (
+                            Username VARCHAR(255),
+                            BookId UUID,
+                            PRIMARY KEY (Username, BookId)
+                        );";
+
                 try
                 {
                     using (var connection = _context.CreateConnection())
                     {
-                        connection.Open();
-
-                        // Step 1: Create Books table if it does not exist
-                        var createBooksTableQuery = @"
-                                    DO $$
-                                    BEGIN
-                                        IF NOT EXISTS (
-                                            SELECT 1 
-                                            FROM information_schema.tables 
-                                            WHERE table_name = 'books' AND table_schema = 'public'
-                                        ) THEN
-                                            CREATE TABLE Books (
-                                                Id UUID PRIMARY KEY,
-                                                Title VARCHAR(255),
-                                                ISBN VARCHAR(255),
-                                                Author VARCHAR(255),
-                                                PublicationYear VARCHAR(4),
-                                                TimeAdded TIMESTAMP,
-                                                Genre VARCHAR(255),
-                                                Quantity INT DEFAULT 1,
-                                                Price FLOAT,
-                                                Pages INT,
-                                                Description VARCHAR(1000),
-                                                Category VARCHAR(255),
-                                                NoClick INT DEFAULT 0,
-                                                NoOfPurchase INT DEFAULT 0,
-                                                NoOfCart INT DEFAULT 0
-                                            );
-                                        END IF;
-                                    END $$;";
 
                         await connection.ExecuteAsync(createBooksTableQuery);
-                        //Console.WriteLine("Books table checked and created if necessary.");
-
-                        // Step 2: Create Carts table if it does not exist
-                        var createCartsTableQuery = @"
-                                DO $$
-                                BEGIN
-                                    IF NOT EXISTS (
-                                        SELECT 1 
-                                        FROM information_schema.tables 
-                                        WHERE table_name = 'carts' AND table_schema = 'public'
-                                    ) THEN
-                                        CREATE TABLE Carts (
-                                            Username VARCHAR(255),
-                                            BookId UUID,
-                                            PRIMARY KEY (Username, BookId)
-                                        );
-                                    END IF;
-                                END $$;";
-
                         await connection.ExecuteAsync(createCartsTableQuery);
+
+                        // If execution reaches here without exceptions, proceed to cache the result
+
+                            cachedData = "yes";
+
+                            var cacheEntryOptions = new MemoryCacheEntryOptions()
+                                .SetSlidingExpiration(TimeSpan.FromDays(365))
+                                .SetAbsoluteExpiration(TimeSpan.FromDays(500));
+
+                            _memoryCache.Set(cacheKey, cachedData, cacheEntryOptions);
+
                     }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
                 }
-                cachedData = "yes";
 
-                // Set cache options
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromDays(365)) // Refresh expiration after each access
-                    .SetAbsoluteExpiration(TimeSpan.FromDays(500)); // Cache expires after 1 hour
 
-                // Save data in cache
-                _memoryCache.Set(cacheKey, cachedData, cacheEntryOptions);
             }
+
         }
     }
-
 }
+
+

@@ -1,4 +1,4 @@
-namespace UserAuthManagementService.API
+namespace PaymentPurchaseManagementService.API
 {
     public class WeatherForecast
     {

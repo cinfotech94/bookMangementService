@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentPurchaseManagementService.Domain.Protos";
+
+import "google/protobuf/timestamp.proto";
+
+package RequestResponse;
+
+message RequestMessage {
+    string methodName = 1;
+    string caller = 2;
+    string payload = 3;
+    google.protobuf.Timestamp requestTime = 4;
+}
+
+message ResponseMessage {
+    string caller = 1;
+    string methodName = 2;
+    string payload = 3;
+    google.protobuf.Timestamp responseTime = 4;
+}
+
+service RequestMessager {
+    rpc SendRequest (RequestMessage) returns (ResponseMessage);
+}

@@ -19,7 +19,6 @@ namespace UserAuthManagementService.Domain.DTO.Request;
     public string city { get; set; }
     public string state { get; set; }
     public string country { get; set; }
-    public Double balance { get; set; }
     public string Password { get; set; }
 }
     public class UserDtoValidator : AbstractValidator<UserDto>
@@ -48,8 +47,6 @@ namespace UserAuthManagementService.Domain.DTO.Request;
         RuleFor(x => x.state)
                 .NotEmpty().WithMessage("state is required")
                 .Length(5, 50).WithMessage("state must be between 5 and 50 characters.");
-            RuleFor(x => x.balance)
-                .NotEmpty().WithMessage("price is required");
             RuleFor(x => x.Password)
                 .NotEmpty().WithMessage("Password is required")
                 .Length(10, 13).WithMessage("Password must be between 10 and 13 characters for ISBN-10, ISBN-13 respectively.");

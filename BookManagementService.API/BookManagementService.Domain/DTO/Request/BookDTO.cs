@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace BookManagementService.Domain.DTO.Request;
     public class BookDTO
     {
+    public Guid id { get; set; }
 
     public string title { get; set; }
     public string ISBN { get; set; }
@@ -22,7 +23,7 @@ namespace BookManagementService.Domain.DTO.Request;
     public string description { get; set; }
     public string category { get; set; }
     public int? noClick { get; set; }
-    public int? noOfPPurchase { get; set; }
+    public int? noOfPurchase { get; set; }
     public int? noOfCart { get; set; }
 }
     public class BookDtoValidator : AbstractValidator<BookDTO>

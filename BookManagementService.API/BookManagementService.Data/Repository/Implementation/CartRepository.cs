@@ -29,7 +29,7 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                await GetCachedData();
                 var query = @"INSERT INTO carts (username, bookId)
                           VALUES (@Username, @BookId)";
                 using (var connection = _context.CreateConnection())
@@ -53,7 +53,7 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 var query = @"SELECT username, bookId
                           FROM carts
@@ -75,7 +75,7 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                await GetCachedData();
 
                 var query = @"DELETE FROM carts
                           WHERE username = @Username AND bookId = @BookId";
@@ -96,7 +96,7 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                await GetCachedData();
                 var query = @"DELETE FROM carts WHERE username = @Username";
                 using (var connection = _context.CreateConnection())
                 {
@@ -111,7 +111,7 @@ namespace BookManagementService.Data.Repository.Implementation
         }
         private async Task GetCachedData()
         {
-            string cacheKey = "databseExist";
+            string cacheKey = "CartdatabseExist";
             if (!_memoryCache.TryGetValue(cacheKey, out string cachedData))
             {
                 // Data not in cache, fetch it

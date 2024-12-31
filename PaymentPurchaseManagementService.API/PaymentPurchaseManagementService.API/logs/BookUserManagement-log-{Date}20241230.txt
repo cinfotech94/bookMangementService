@@ -1,0 +1,828 @@
+2024-12-30 01:00:24.815 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 01:00:28.621 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 01:00:29.694 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 01:00:30.437 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 01:00:34.813 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 01:00:34.836 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 01:00:35.324 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 01:00:35.384 +01:00 [INF] Hosting environment: Development
+2024-12-30 01:00:35.395 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 01:00:36.770 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 01:00:39.250 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 01:00:48.432 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 11682.0789ms
+2024-12-30 01:00:48.703 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 01:00:48.710 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 01:00:50.325 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 1623.9959ms
+2024-12-30 01:00:51.359 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2651.8741ms
+2024-12-30 01:00:51.593 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 01:00:52.704 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1112.3059ms
+2024-12-30 01:00:53.472 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 01:01:09.502 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 00:36:11.630 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 00:36:11.864 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 00:36:12.123 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 00:36:12.150 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 00:36:12.176 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 00:36:12.729 +00:00 [INF] Creating key {eb6431a2-e51d-4973-afaf-a329a19c95ce} with creation date 2024-12-30 00:36:12Z, activation date 2024-12-30 00:36:12Z, and expiration date 2025-03-30 00:36:12Z.
+2024-12-30 00:36:12.757 +00:00 [WRN] No XML encryptor configured. Key {eb6431a2-e51d-4973-afaf-a329a19c95ce} may be persisted to storage in unencrypted form.
+2024-12-30 00:36:13.425 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 00:36:13.530 +00:00 [WRN] Failed to stop bus: "rabbitmq://rabbitmq:0/a8ac436d818d_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrrmtpbdq1o4xi8x?temporary=true" (Not Started)
+2024-12-30 00:36:13.521 +00:00 [ERR] BackgroundService failed
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at PaymentPurchaseManagementService.Service.BackGoundService.JobWorker.ExecuteAsync(CancellationToken stoppingToken) in C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.Service\BackGroundServices\JobWorker.cs:line 36
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2024-12-30 00:36:13.543 +00:00 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at PaymentPurchaseManagementService.Service.BackGoundService.JobWorker.ExecuteAsync(CancellationToken stoppingToken) in C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.Service\BackGroundServices\JobWorker.cs:line 36
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2024-12-30 00:36:13.546 +00:00 [INF] Application is shutting down...
+2024-12-30 08:54:03.481 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 08:56:01.395 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 08:57:50.775 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:57:52.627 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:57:53.723 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:58:10.797 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 08:58:10.806 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 08:58:11.016 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 08:58:11.017 +01:00 [INF] Hosting environment: Development
+2024-12-30 08:58:11.020 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 08:58:12.416 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 08:58:15.958 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 08:58:16.066 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 3681.4623ms
+2024-12-30 08:58:16.095 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 08:58:16.126 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 08:58:17.387 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 1291.8064ms
+2024-12-30 08:58:18.611 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 2485.2334ms
+2024-12-30 08:58:18.854 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 08:58:21.171 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2316.9259ms
+2024-12-30 08:58:30.400 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 09:17:33.625 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 09:18:10.307 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:18:10.543 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:18:10.550 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:18:12.065 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 09:18:12.069 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 09:18:12.317 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 09:18:12.685 +01:00 [INF] Hosting environment: Development
+2024-12-30 09:18:13.052 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 09:18:13.060 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 09:18:16.892 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 09:18:16.893 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 09:18:16.905 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 3866.0469ms
+2024-12-30 09:18:17.434 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 542.8551ms
+2024-12-30 09:18:17.591 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 09:18:17.950 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1056.787ms
+2024-12-30 09:18:18.101 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 09:18:18.563 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 462.3389ms
+2024-12-30 09:18:30.377 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 09:18:45.760 +01:00 [WRN] Connection Failed: "rabbitmq://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 09:54:57.928 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 09:54:59.030 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:54:59.039 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:54:59.042 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:55:00.261 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 09:55:00.265 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 09:55:00.493 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 09:55:00.517 +01:00 [INF] Hosting environment: Development
+2024-12-30 09:55:00.519 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 09:55:01.708 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 09:55:04.286 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 2595.3941ms
+2024-12-30 09:55:04.309 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 09:55:04.309 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 09:55:04.363 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 53.3783ms
+2024-12-30 09:55:04.510 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 200.4647ms
+2024-12-30 09:55:04.710 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 09:55:05.274 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 09:55:05.635 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 925.3572ms
+2024-12-30 08:58:17.086 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 08:58:17.171 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 08:58:17.288 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:58:17.293 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:58:17.296 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:58:17.537 +00:00 [INF] Creating key {9b2b7f2b-6f1c-4162-b191-a8e8f399674c} with creation date 2024-12-30 08:58:17Z, activation date 2024-12-30 08:58:17Z, and expiration date 2025-03-30 08:58:17Z.
+2024-12-30 08:58:17.587 +00:00 [WRN] No XML encryptor configured. Key {9b2b7f2b-6f1c-4162-b191-a8e8f399674c} may be persisted to storage in unencrypted form.
+2024-12-30 08:58:17.976 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 08:58:18.042 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/965b479e37fb_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrfx6obdq1tcy4yb?temporary=true" (Not Started)
+2024-12-30 08:58:18.038 +00:00 [ERR] BackgroundService failed
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at PaymentPurchaseManagementService.Service.BackGoundService.JobWorker.ExecuteAsync(CancellationToken stoppingToken) in C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.Service\BackGroundServices\JobWorker.cs:line 36
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2024-12-30 08:58:18.052 +00:00 [FTL] The HostOptions.BackgroundServiceExceptionBehavior is configured to StopHost. A BackgroundService has thrown an unhandled exception, and the IHost instance is stopping. To avoid this behavior, configure this to Ignore; however the BackgroundService will not be restarted.
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at PaymentPurchaseManagementService.Service.BackGoundService.JobWorker.ExecuteAsync(CancellationToken stoppingToken) in C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.Service\BackGroundServices\JobWorker.cs:line 36
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2024-12-30 08:58:18.055 +00:00 [INF] Application is shutting down...
+2024-12-30 08:59:34.475 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 08:59:34.567 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 08:59:34.733 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:59:34.744 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:59:34.746 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 08:59:35.126 +00:00 [INF] Creating key {75431413-18b7-4d05-bb0a-973422478c99} with creation date 2024-12-30 08:59:35Z, activation date 2024-12-30 08:59:35Z, and expiration date 2025-03-30 08:59:35Z.
+2024-12-30 08:59:35.191 +00:00 [WRN] No XML encryptor configured. Key {75431413-18b7-4d05-bb0a-973422478c99} may be persisted to storage in unencrypted form.
+2024-12-30 08:59:35.646 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 08:59:35.751 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/965b479e37fb_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrrepgbdq1tcnebr?temporary=true" (Not Started)
+2024-12-30 08:59:35.744 +00:00 [ERR] BackgroundService failed
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at PaymentPurchaseManagementService.Service.BackGoundService.JobWorker.ExecuteAsync(CancellationToken stoppingToken) in C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.Service\BackGroundServices\JobWorker.cs:line 36
+   at Microsoft.Extensions.Hosting.Internal.Host.TryExecuteBackgroundServiceAsync(BackgroundService backgroundService)
+2024-12-30 09:02:03.857 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:02:04.190 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:02:04.602 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:02:04.704 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:02:04.841 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:02:05.949 +00:00 [INF] Creating key {6fed4d91-a3b3-4647-86c3-7363e9c257f5} with creation date 2024-12-30 09:02:05Z, activation date 2024-12-30 09:02:05Z, and expiration date 2025-03-30 09:02:05Z.
+2024-12-30 09:02:06.035 +00:00 [WRN] No XML encryptor configured. Key {6fed4d91-a3b3-4647-86c3-7363e9c257f5} may be persisted to storage in unencrypted form.
+2024-12-30 09:02:07.253 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:02:07.679 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/74acea1a7c13_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrrjo6bdq1tcfbdb?temporary=true" (Not Started)
+2024-12-30 09:03:50.186 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:03:50.265 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:03:50.427 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:03:50.434 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:03:50.456 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:03:50.737 +00:00 [INF] Creating key {05cc2559-7f6a-40d5-b984-f0b3ddf0ac4f} with creation date 2024-12-30 09:03:50Z, activation date 2024-12-30 09:03:50Z, and expiration date 2025-03-30 09:03:50Z.
+2024-12-30 09:03:50.769 +00:00 [WRN] No XML encryptor configured. Key {05cc2559-7f6a-40d5-b984-f0b3ddf0ac4f} may be persisted to storage in unencrypted form.
+2024-12-30 09:03:51.223 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:03:51.316 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/74acea1a7c13_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrfdoubdq1tc8yrp?temporary=true" (Not Started)
+2024-12-30 09:04:52.897 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:04:53.247 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:04:53.578 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:04:53.589 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:04:53.595 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:04:54.465 +00:00 [INF] Creating key {e8f0b6ed-eb3b-46e5-9610-c673317bcc00} with creation date 2024-12-30 09:04:54Z, activation date 2024-12-30 09:04:54Z, and expiration date 2025-03-30 09:04:54Z.
+2024-12-30 09:04:54.531 +00:00 [WRN] No XML encryptor configured. Key {e8f0b6ed-eb3b-46e5-9610-c673317bcc00} may be persisted to storage in unencrypted form.
+2024-12-30 09:04:55.195 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:04:55.248 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/f1e0e812e489_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrfyaxbdq1tcegy6?temporary=true" (Not Started)
+2024-12-30 09:12:13.217 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:12:13.636 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:12:14.044 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:12:14.059 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:12:14.062 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:12:15.126 +00:00 [INF] Creating key {d106c544-1c07-4ae9-8b17-c1ea54b79ce6} with creation date 2024-12-30 09:12:15Z, activation date 2024-12-30 09:12:15Z, and expiration date 2025-03-30 09:12:15Z.
+2024-12-30 09:12:15.222 +00:00 [WRN] No XML encryptor configured. Key {d106c544-1c07-4ae9-8b17-c1ea54b79ce6} may be persisted to storage in unencrypted form.
+2024-12-30 09:12:16.252 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:12:16.342 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/1d52cb3b6dfb_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrf3zqbdq1tcocfk?temporary=true" (Not Started)
+2024-12-30 09:17:42.088 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:17:42.389 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:17:42.831 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:17:42.843 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:17:42.854 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:17:43.652 +00:00 [INF] Creating key {04f0df58-5359-4afa-8e11-235fab46feea} with creation date 2024-12-30 09:17:43Z, activation date 2024-12-30 09:17:43Z, and expiration date 2025-03-30 09:17:43Z.
+2024-12-30 09:17:43.688 +00:00 [WRN] No XML encryptor configured. Key {04f0df58-5359-4afa-8e11-235fab46feea} may be persisted to storage in unencrypted form.
+2024-12-30 09:17:44.570 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:17:44.633 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/6983bcfce9ce_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrfpojbdq1tcsor5?temporary=true" (Not Started)
+2024-12-30 09:27:18.181 +00:00 [WRN] Using an in-memory repository. Keys will not be persisted to storage.
+2024-12-30 09:27:18.301 +00:00 [WRN] Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2024-12-30 09:27:18.466 +00:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:27:18.473 +00:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:27:18.476 +00:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 09:27:18.807 +00:00 [INF] Creating key {651c5b8f-9b89-482e-84e8-20896aaa8956} with creation date 2024-12-30 09:27:18Z, activation date 2024-12-30 09:27:18Z, and expiration date 2025-03-30 09:27:18Z.
+2024-12-30 09:27:18.832 +00:00 [WRN] No XML encryptor configured. Key {651c5b8f-9b89-482e-84e8-20896aaa8956} may be persisted to storage in unencrypted form.
+2024-12-30 09:27:19.369 +00:00 [ERR] Hosting failed to start
+System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+   at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindAsync(ListenOptions[] listenOptions, AddressBindContext context, Func`2 useHttps, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__15_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2024-12-30 09:27:19.427 +00:00 [WRN] Failed to stop bus: "rabbitmqs://rabbitmq:0/16a8043fa36f_PaymentPurchaseManagementServiceAPI_bus_yybyyyfcnrbrrg45bdq1tpb8gx?temporary=true" (Not Started)
+2024-12-30 12:35:06.097 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 12:35:07.458 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:35:07.470 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:35:07.483 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:35:08.780 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 12:35:08.782 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 12:35:08.946 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 12:35:08.950 +01:00 [INF] Hosting environment: Development
+2024-12-30 12:35:08.952 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 12:35:09.500 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 12:35:11.806 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 12:35:11.806 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 12:35:11.810 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 2339.943ms
+2024-12-30 12:35:11.915 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 108.8207ms
+2024-12-30 12:35:12.286 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 479.3856ms
+2024-12-30 12:35:12.520 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 12:35:13.205 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 686.4314ms
+2024-12-30 12:35:13.642 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:35:26.226 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:35:41.403 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:36:01.980 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:36:38.491 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:37:16.264 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:37:52.972 +01:00 [WRN] Connection Failed: "rabbitmqs://rabbitmq:0/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (11001): No such host is known.
+   at System.Net.NameResolutionPal.ProcessResult(SocketError errorCode, GetAddrInfoExContext* context)
+   at System.Net.NameResolutionPal.GetAddressInfoExCallback(Int32 error, Int32 bytes, NativeOverlapped* overlapped)
+--- End of stack trace from previous location ---
+   at System.Net.Dns.<GetAddrInfoWithTelemetryAsync>g__CompleteAsync|34_0[T](Task task, String hostName, Int64 startingTimestamp)
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.Integration.ConnectionContextFactory.CreateConnection(ISupervisor supervisor)
+2024-12-30 12:42:39.949 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 12:42:41.304 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:42:41.340 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:42:41.350 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 12:42:43.810 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 12:42:46.114 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 12:42:46.453 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 12:42:47.794 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 12:42:47.820 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 12:42:48.411 +01:00 [INF] Hosting environment: Development
+2024-12-30 12:42:48.413 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 12:42:50.527 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 4104.2921ms
+2024-12-30 12:42:51.080 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 12:42:51.189 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 12:42:51.366 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 176.1915ms
+2024-12-30 12:42:51.610 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 531.1876ms
+2024-12-30 12:42:51.783 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 12:42:52.286 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 503.1402ms
+2024-12-30 13:51:52.973 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 13:51:54.232 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 13:51:54.243 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 13:51:54.249 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 13:51:56.180 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 13:51:56.201 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 13:51:56.583 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 13:51:56.591 +01:00 [INF] Hosting environment: Development
+2024-12-30 13:51:56.600 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 13:51:57.457 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 13:51:58.494 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 13:52:06.919 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 8450.2539ms
+2024-12-30 13:52:06.952 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 13:52:06.952 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 13:52:07.500 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 547.7519ms
+2024-12-30 13:52:07.954 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1002.1667ms
+2024-12-30 13:52:08.231 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 13:52:08.868 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 636.3468ms
+2024-12-30 14:17:40.208 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 14:17:41.064 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:17:41.071 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:17:41.074 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:17:41.793 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 14:17:41.795 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 14:17:41.949 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 14:17:41.968 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 14:17:41.974 +01:00 [INF] Hosting environment: Development
+2024-12-30 14:17:41.976 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 14:17:42.554 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 14:17:44.415 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 1876.567ms
+2024-12-30 14:17:44.479 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 14:17:44.479 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 14:17:44.509 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 28.8858ms
+2024-12-30 14:17:44.642 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 163.0474ms
+2024-12-30 14:17:44.828 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 14:17:45.395 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 564.1116ms
+2024-12-30 14:18:41.755 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 14:18:42.583 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:18:42.589 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:18:42.592 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:18:43.425 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 14:18:43.427 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 14:18:43.475 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 14:18:43.568 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 14:18:43.573 +01:00 [INF] Hosting environment: Development
+2024-12-30 14:18:43.575 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 14:18:44.690 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 14:18:46.050 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 14:18:46.052 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 14:18:46.055 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 1378.8509ms
+2024-12-30 14:18:46.103 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 52.764ms
+2024-12-30 14:18:46.371 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 319.7488ms
+2024-12-30 14:18:46.522 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 14:18:46.880 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 359.4097ms
+2024-12-30 14:37:20.459 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 14:37:21.628 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:37:21.635 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:37:21.638 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 14:37:23.056 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 14:37:23.061 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 14:37:23.189 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 14:37:23.262 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 14:37:23.265 +01:00 [INF] Hosting environment: Development
+2024-12-30 14:37:23.272 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 14:37:24.810 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 14:37:30.447 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 14:37:30.447 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 14:37:30.449 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 5656.6787ms
+2024-12-30 14:37:30.467 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 19.9923ms
+2024-12-30 14:37:31.866 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1420.0053ms
+2024-12-30 14:37:32.204 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 14:37:32.934 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 729.5962ms
+2024-12-30 16:54:31.497 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-12-30 16:54:33.182 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 16:54:33.193 +01:00 [INF] Configured endpoint payment-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 16:54:33.197 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2024-12-30 16:54:35.611 +01:00 [INF] Now listening on: https://localhost:7041
+2024-12-30 16:54:35.619 +01:00 [INF] Now listening on: http://localhost:5288
+2024-12-30 16:54:35.838 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2024-12-30 16:54:35.940 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-12-30 16:54:35.971 +01:00 [INF] Hosting environment: Development
+2024-12-30 16:54:35.976 +01:00 [INF] Content root path: C:\cinfotech\PaymentPurchaseManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2024-12-30 16:54:36.947 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2024-12-30 16:54:40.907 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2024-12-30 16:54:40.911 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 3988.4005ms
+2024-12-30 16:54:40.912 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2024-12-30 16:54:41.043 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 145.9414ms
+2024-12-30 16:54:41.239 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 326.296ms
+2024-12-30 16:54:41.421 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2024-12-30 16:54:44.090 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 2668.9009ms

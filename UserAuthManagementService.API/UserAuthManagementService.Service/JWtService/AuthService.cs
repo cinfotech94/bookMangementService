@@ -36,7 +36,7 @@ namespace UserAuthManagementService.Service.JWtService
             _cardServiceencryptkey = "hgjhduyoipoewlkk0pkpojo4joifof4wjpjoliniubih";
             _loggingService = loggingService;
         }
-        public async Task<string> AuthenticateUser(LoginRequest loginRequest,User user, string caller, string corelationId)
+        public async Task<string> AuthenticateUser(LoginRequest loginRequest,UserDTO user, string caller, string corelationId)
         {
             try
             {

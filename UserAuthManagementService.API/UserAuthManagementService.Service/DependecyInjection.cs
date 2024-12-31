@@ -10,6 +10,7 @@ using UserAuthManagementService.ServiceGeneric.Services.Interface;
 using UserAuthManagementService.Service.BackGoundService;
 using UserAuthManagementService.Domain.Protos;
 using UserAuthManagementService.Service.MainServices;
+using UserAuthManagementService.Service.JWtService;
 
 namespace UserAuthManagementService.Service;
 public static class DependecyInjection
@@ -53,6 +54,7 @@ public static class DependecyInjection
         });
         services.AddGrpcClient<RequestMessager.RequestMessagerClient>(o =>
         {
+            o.Address = new Uri("https://localhost:7041/GRPC");  // Point to your gRPC server's URL
             o.Address = new Uri("https://localhost:7042/GRPC");  // Point to your gRPC server's URL
         });
 
@@ -63,6 +65,8 @@ public static class DependecyInjection
         services.AddScoped<IIpService, IpService>();
         services.AddScoped<ILoggingService,LoggingService>();
         services.AddScoped<IRestHelper,RestHelper>();
+        services.AddScoped<AuthService>();
+        services.AddScoped<JwtTokenService>();
         services.AddSingleton<JobService>();
         services.AddHostedService<JobWorker>();
         services.AddScoped<IUserServices, UserServices>();

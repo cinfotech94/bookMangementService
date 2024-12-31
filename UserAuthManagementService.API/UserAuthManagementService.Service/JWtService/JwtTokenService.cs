@@ -26,7 +26,7 @@ namespace UserAuthManagementService.Service.JWtService
             _secretKey = "hgjhsoiwlka;ft[pkg[le[g]5]gl=]4p;eg];]=]p;=tyeeveheuieeiebge";
             _loggingService = loggingService;
         }
-        public string GenerateJwtToken(User user, string caller, string corelationId)
+        public string GenerateJwtToken(UserDTO user, string caller, string corelationId)
         {
             try
             {

@@ -17,6 +17,9 @@ using BookManagementService.ServiceGeneric.Services.Interface;
 //using BookManagementService.Service.BackGoundService;
 using RabbitMQ.Client;
 using BookManagementService.Domain.Protos;
+using BookManagementService.Service.MainServices.Interface;
+using BookManagementService.Service.MainServices.Implementation;
+using BookManagementService.Service.GRPCServices;
 //using BookManagementService.Service.MainServices;
 //using BookManagementService.Domain.Protos;
 //using BookManagementService.Service.GRPCServices;
@@ -76,12 +79,16 @@ public static class DependecyInjection
 
         services.AddGrpcClient<RequestMessager.RequestMessagerClient>(o =>
         {
-            o.Address = new Uri("https://localhost:7041/GRPC");  // Point to your gRPC server's URL
+            o.Address = new Uri("https://localhost:7042/GRPC");
+            o.Address = new Uri("https://localhost:7018/GRPC");  // Point to your gRPC server's URL
         });
 
         services.AddMassTransitHostedService();
         services.AddScoped<MailerService>();
+        services.AddScoped<RequestPublish>();
         services.AddScoped<ElasticsearchService>();
+        services.AddScoped<ICartService, CartService>();
+        services.AddScoped<IBookService, BookServices>();
         services.AddScoped<IEncryptionService, EncryptionService>();
         services.AddScoped<IIpService, IpService>();
         services.AddScoped<ILoggingService, LoggingService>();

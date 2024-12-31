@@ -12,8 +12,8 @@ namespace UserAuthManagementService.Data.Repository.Interface
     {
         Task<(int, Exception)> AddUserAsync(UserDto user);
         Task<(UserDto, Exception)> GetUserByIdAsync(Guid userId);
-        Task<(int, Exception)> UpdateUserAsync(User user);
+        Task<(int, Exception)> UpdateUserAsync(UserDTO user);
         Task<(int, Exception)> DeleteUserAsync(Guid userId);
-        Task<(User, Exception)> GetUserByEmailUsernameAsync(string emailUsername);
+        Task<(UserDTO, Exception)> GetUserByEmailUsernameAsync(string emailUsername);
     }
 }

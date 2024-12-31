@@ -25,7 +25,8 @@ public static class DependecyInjection
             return new MongoClient(connectionString);
         });
         services.AddScoped<IInboundLogRepository, InboundLogRepository>();
-        services.AddScoped<IAuditRepository, AuditRepository>();
+        services.AddScoped<ICartRepository, CartRepository>();
+        services.AddScoped<IBookRepository, BookRepository>();
     }
 }
 

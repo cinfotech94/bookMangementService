@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace UserAuthManagementService.Domain.Entity
 {
-    public class User
+    public class UserDTO
     {
         [Key]
         public Guid id { get; set; }= Guid.NewGuid();

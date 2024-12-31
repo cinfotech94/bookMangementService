@@ -24,11 +24,12 @@ namespace UserAuthManagementService.Service.GenericServices.Static
             string to,
             string subject,
             string body,
-            [CallerMemberName] string caller = "")
+            string caller , string correlationId)
         {
+            caller = caller + nameof(SendEmail);
             if (string.IsNullOrWhiteSpace(to))
             {
-                await _loggingService.LogError("To address is missing.", caller, new ArgumentNullException(nameof(to)));
+                await _loggingService.LogError("To address is missing.", caller, new ArgumentNullException(nameof(to)), correlationId);
                 throw new ArgumentNullException(nameof(to), "To address is required.");
             }
 
@@ -60,12 +61,12 @@ namespace UserAuthManagementService.Service.GenericServices.Static
                 // Send the email
                 await smtpClient.SendMailAsync(mailMessage);
 
-                await _loggingService.LogInformation($"Email sent successfully to {to}.", caller);
+                await _loggingService.LogInformation($"Email sent successfully to {to}.", caller, correlationId);
                 return true;
             }
             catch (Exception ex)
             {
-                await _loggingService.LogFatal("An error occurred while sending the email.", caller, ex);
+                await _loggingService.LogFatal("An error occurred while sending the email.", caller, ex, correlationId);
                 throw; // Re-throw the exception after logging it
             }
         }

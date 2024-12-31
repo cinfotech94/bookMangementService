@@ -1,25 +1,59 @@
-var builder = WebApplication.CreateBuilder(args);
+using Serilog;
+using ThirdPartyCardAPIs.API.Extensions;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+try
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    var builder = WebApplication.CreateBuilder(args)
+                .AddSerilog();
+    builder.Logging.AddFilter("FluentValidation", LogLevel.Debug);
+    builder.Services.AddHttpClient();
+    builder.Services.AddServices(builder.Configuration);
+    builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+    {
+        builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();
+    }));
+    if (!builder.Environment.IsDevelopment())
+    {
+        builder.Services.AddHttpsRedirection(options =>
+        {
+            options.HttpsPort = 443;
+        });
+    }
+    builder.Host.UseSerilog();
+    var app = builder.Build();
+    app.ConfigureRequestPipeline(builder.Environment);
+
 }
+catch (Exception ex)
+{
+    Log.Logger.Fatal(ex, ex.Source ?? string.Empty, ex.InnerException, ex.Message, ex.ToString());
+}
+finally
+{
+    Log.CloseAndFlush();
+}
+//var builder = WebApplication.CreateBuilder(args);
 
-app.UseHttpsRedirection();
+//// Add services to the container.
 
-app.UseAuthorization();
+//builder.Services.AddControllers();
+//// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//builder.Services.AddEndpointsApiExplorer();
+//builder.Services.AddSwaggerGen();
 
-app.MapControllers();
+//var app = builder.Build();
 
-app.Run();
+//// Configure the HTTP request pipeline.
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//}
+
+//app.UseHttpsRedirection();
+
+//app.UseAuthorization();
+
+//app.MapControllers();
+
+//app.Run();

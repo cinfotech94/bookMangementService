@@ -1,5 +1,6 @@
 ﻿
 using Grpc.Core;
+using Microsoft.Extensions.DependencyInjection;
 using UserAuthManagementService.Domain.DTO.Request;
 using UserAuthManagementService.Domain.Protos;
 using UserAuthManagementService.Service.MainServices;
@@ -9,11 +10,14 @@ namespace UserAuthManagementService.Service.GRPCServices
 {
     public class RequestMessagerService : RequestMessager.RequestMessagerBase
     {
+        private readonly IServiceProvider _serviceProvider;
         private readonly IUserServices _userServices;
 
-        public RequestMessagerService( IUserServices userServices)
+        public RequestMessagerService(IServiceProvider serviceProvider)
         {
-            _userServices = userServices;
+            _serviceProvider = serviceProvider;
+            _userServices = _serviceProvider.CreateScope().ServiceProvider.GetRequiredService<IUserServices>();
+
         }
         public async override Task<ResponseMessage> SendRequest(RequestMessage request, ServerCallContext context)
         {
