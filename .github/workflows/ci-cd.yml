@@ -1,0 +1,114 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: cinfotech
+          POSTGRES_DB: mydatabase
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd="pg_isready"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+      mongodb:
+        image: mongo:latest
+        env:
+          MONGO_INITDB_ROOT_USERNAME: root
+          MONGO_INITDB_ROOT_PASSWORD: cinfotech
+        ports:
+          - 27018:27017
+        options: >-
+          --health-cmd="mongo --eval 'db.runCommand({ ping: 1 })'"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+      rabbitmq:
+        image: rabbitmq:3-management
+        env:
+          RABBITMQ_DEFAULT_USER: admin
+          RABBITMQ_DEFAULT_PASS: cinfotech
+        ports:
+          - 5672:5672
+          - 15672:15672
+        options: >-
+          --health-cmd="rabbitmq-diagnostics -q check_port_connectivity"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '7.0.x'
+
+      - name: Restore dependencies
+        run: |
+          dotnet restore BookManagementService.API/BookManagementService.API.csproj
+          dotnet restore PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj
+          dotnet restore UserAuthManagementService.API/UserAuthManagementService.API.csproj
+
+      - name: Build projects
+        run: |
+          dotnet build BookManagementService.API/BookManagementService.API.csproj --configuration Release --no-restore
+          dotnet build PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --configuration Release --no-restore
+          dotnet build UserAuthManagementService.API/UserAuthManagementService.API.csproj --configuration Release --no-restore
+
+      - name: Run tests
+        run: |
+          dotnet test BookManagementService.API/BookManagementService.API.csproj --no-build --verbosity normal
+          dotnet test PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --no-build --verbosity normal
+          dotnet test UserAuthManagementService.API/UserAuthManagementService.API.csproj --no-build --verbosity normal
+
+      - name: Build Docker images
+        run: |
+          docker-compose -f docker-compose.yml build
+
+      - name: Push Docker images to registry
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+          docker-compose -f docker-compose.yml push
+
+      - name: Deploy to development branch
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          # Deployment commands here
+          echo "Deploying to development environment..."
+
+      - name: Send notification email
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: Build ${{ job.status }} for ${{ github.repository }}
+          to: ${{ secrets.RECIPIENT_EMAIL }}
+          from: ${{ secrets.GMAIL_USERNAME }}
+          body: |
+            The build for commit ${{ github.sha }} has completed with status: ${{ job.status }}.
+            Repository: ${{ github.repository }}
+            Branch: ${{ github.ref }}
+            Commit Message: ${{ github.event.head_commit.message }}
