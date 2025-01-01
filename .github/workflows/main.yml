@@ -26,7 +26,7 @@ jobs:
           --health-timeout=5s
           --health-retries=5
       mongodb:
-        image: mongo:latest
+        image: mongo:5.0.12
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: cinfotech
@@ -91,7 +91,7 @@ jobs:
           docker-compose -f docker-compose.yml push
 
       - name: Deploy to development branch
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/Develop'
         run: |
           # Deployment commands here
           echo "Deploying to development environment..."
