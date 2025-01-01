@@ -3,10 +3,10 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
-      - develop
+      - Develop
   pull_request:
     branches:
-      - develop
+      - Develop
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
           --health-timeout=5s
           --health-retries=5
       mongodb:
-        image: mongo:latest
+        image: mongo:5.0.12
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: cinfotech
@@ -58,25 +58,25 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '7.0.x'
+          dotnet-version: '8.0'
 
       - name: Restore dependencies
         run: |
-          dotnet restore BookManagementService.API/BookManagementService.API.csproj
-          dotnet restore PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj
-          dotnet restore UserAuthManagementService.API/UserAuthManagementService.API.csproj
+          dotnet restore BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj
+          dotnet restore PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj
+          dotnet restore UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj
 
       - name: Build projects
         run: |
-          dotnet build BookManagementService.API/BookManagementService.API.csproj --configuration Release --no-restore
-          dotnet build PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --configuration Release --no-restore
-          dotnet build UserAuthManagementService.API/UserAuthManagementService.API.csproj --configuration Release --no-restore
+          dotnet build BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj --configuration Release --no-restore
+          dotnet build PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --configuration Release --no-restore
+          dotnet build UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj --configuration Release --no-restore
 
       - name: Run tests
         run: |
-          dotnet test BookManagementService.API/BookManagementService.API.csproj --no-build --verbosity normal
-          dotnet test PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --no-build --verbosity normal
-          dotnet test UserAuthManagementService.API/UserAuthManagementService.API.csproj --no-build --verbosity normal
+          dotnet test BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj --no-build --verbosity normal
+          dotnet test PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --no-build --verbosity normal
+          dotnet test UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj --no-build --verbosity normal
 
       - name: Build Docker images
         run: |
@@ -91,7 +91,7 @@ jobs:
           docker-compose -f docker-compose.yml push
 
       - name: Deploy to development branch
-        if: github.ref == 'refs/heads/develop'
+        if: github.ref == 'refs/heads/Develop'
         run: |
           # Deployment commands here
           echo "Deploying to development environment..."
