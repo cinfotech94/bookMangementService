@@ -7,12 +7,16 @@ This project consists of two microservices: **Book Management Service** and **Us
 ## Services
 
 - **Book Management Service:**
-  - Handles all book-related operations, including buying and management.
+  - Handles all book-related operations, including books managemnt, cart management and management.
 
 - **User Management Service:**
-  - Manages user-related operations, such as user profiles, cart management, and authentication.
+  - Manages user-related operations, such as user profiles, and authentication.
   - Facilitates communication between services using **RabbitMQ** for asynchronous messaging and **gRPC** for immediate response requests.
 
+- **purchase payment Management Service:**
+  - Manages user-related operations, such as user purchase management service.
+  - Facilitates communication between services using **RabbitMQ** for asynchronous messaging and **gRPC** for immediate response requests.
+    
 ## Features
 
 ### Dependencies
