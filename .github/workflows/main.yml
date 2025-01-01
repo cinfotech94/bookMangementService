@@ -62,21 +62,21 @@ jobs:
 
       - name: Restore dependencies
         run: |
-          dotnet restore BookManagementService.API/BookManagementService.API.csproj
-          dotnet restore PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj
-          dotnet restore UserAuthManagementService.API/UserAuthManagementService.API.csproj
+          dotnet restore BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj
+          dotnet restore PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj
+          dotnet restore UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj
 
       - name: Build projects
         run: |
-          dotnet build BookManagementService.API/BookManagementService.API.csproj --configuration Release --no-restore
-          dotnet build PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --configuration Release --no-restore
-          dotnet build UserAuthManagementService.API/UserAuthManagementService.API.csproj --configuration Release --no-restore
+          dotnet build BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj --configuration Release --no-restore
+          dotnet build PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --configuration Release --no-restore
+          dotnet build UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj --configuration Release --no-restore
 
       - name: Run tests
         run: |
-          dotnet test BookManagementService.API/BookManagementService.API.csproj --no-build --verbosity normal
-          dotnet test PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --no-build --verbosity normal
-          dotnet test UserAuthManagementService.API/UserAuthManagementService.API.csproj --no-build --verbosity normal
+          dotnet test BookManagementService.API/BookManagementService.API/BookManagementService.API.csproj --no-build --verbosity normal
+          dotnet test PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API/PaymentPurchaseManagementService.API.csproj --no-build --verbosity normal
+          dotnet test UserAuthManagementService.API/UserAuthManagementService.API/UserAuthManagementService.API.csproj --no-build --verbosity normal
 
       - name: Build Docker images
         run: |
