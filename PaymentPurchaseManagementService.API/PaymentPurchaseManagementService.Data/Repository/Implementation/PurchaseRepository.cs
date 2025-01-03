@@ -30,7 +30,7 @@ namespace PaymentPurchaseManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                
                 var query = @"INSERT INTO purchases (username, bookId)
                           VALUES (@Username, @BookId)";
                 using (var connection = _context.CreateConnection())
@@ -54,7 +54,7 @@ namespace PaymentPurchaseManagementService.Data.Repository.Implementation
         {
             try
             {
-                GetCachedData();
+                
 
                 var query = @"SELECT username, bookId
                           FROM purchases

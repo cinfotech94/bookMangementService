@@ -519,3 +519,20 @@ POSITION: 77
 2025-01-03 20:54:38.546 +01:00 [INF] Executed endpoint 'BookManagementService.API.Controllers.CartController.GetBooksInCart (BookManagementService.API)'
 2025-01-03 20:54:38.547 +01:00 [INF] ********This is the service : inboundLogStr after response {"InboundLogId":{"Timestamp":1735934078,"CreationTime":"2025-01-03T19:54:38Z"},"Ip":"::1|::1","CorrelationId":null,"InstitutionId":null,"Level":null,"RequestSystem":null,"APICalled":"AuditTrail API","APIMethod":"/api/v1/Cart/GetBooksInCart","ImpactUniqueIdentifier":null,"ImpactUniqueidentifierValue":null,"AlternateUniqueIdentifier":null,"AlternateUniqueidentifierValue":null,"RequestDetails":null,"RequestDateTime":"2025-01-03T20:54:38.4622096Z","ResponseDetails":"{\u0022status\u0022:true,\u0022message\u0022:\u00221 books returned\u0022,\u0022data\u0022:[{\u0022id\u0022:\u00224838a8bb-6bf5-4421-85e1-f713b2f4b4dd\u0022,\u0022title\u0022:\u0022why me and you\u0022,\u0022isbn\u0022:\u00221245789745814\u0022,\u0022author\u0022:\u0022string\u0022,\u0022publicationYear\u0022:\u00222024\u0022,\u0022timeAdded\u0022:\u00222025-01-03T20:54:38.5143814\u002B01:00\u0022,\u0022genre\u0022:\u0022string\u0022,\u0022quantity\u0022:4,\u0022price\u0022:2.35,\u0022pages\u0022:157,\u0022description\u0022:\u0022string\u0022,\u0022category\u0022:\u0022love\u0022,\u0022noClick\u0022:1,\u0022noOfPurchase\u0022:0,\u0022noOfCart\u0022:0}]}","ResponseDateTime":"0001-01-01T00:00:00","OutboundLogs":null,"ExceptionDetails":null}
 2025-01-03 20:54:38.558 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/api/v1/Cart/GetBooksInCart?username=cinfotech - 200 null application/json; charset=utf-8 113.6294ms
+2025-01-03 20:55:59.225 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-03 20:56:00.826 +01:00 [INF] Configured endpoint payment-service, Consumer: BookManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 20:56:01.350 +01:00 [INF] Configured endpoint user-service, Consumer: BookManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 20:56:03.134 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2025-01-03 20:56:03.266 +01:00 [INF] Now listening on: https://localhost:7041
+2025-01-03 20:56:03.282 +01:00 [INF] Now listening on: http://localhost:5288
+2025-01-03 20:56:03.982 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-03 20:56:04.225 +01:00 [INF] Hosting environment: Development
+2025-01-03 20:56:04.229 +01:00 [INF] Content root path: C:\cinfotech\BookManagementService\BookManagementService.API\BookManagementService.API
+2025-01-03 20:56:06.510 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2025-01-03 20:56:10.831 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 4347.6811ms
+2025-01-03 20:56:11.221 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2025-01-03 20:56:11.146 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-03 20:56:12.526 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 1379.0291ms
+2025-01-03 20:56:12.730 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 1512.2337ms
+2025-01-03 20:56:13.085 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2025-01-03 20:56:13.961 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 875.7858ms

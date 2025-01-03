@@ -803,3 +803,20 @@ System.IO.IOException: The client reset the request stream.
 2025-01-03 19:45:16.838 +01:00 [INF] Executed endpoint 'UserAuthManagementService.API.Controllers.UserAuthController.ChangeBalanceUser (UserAuthManagementService.API)'
 2025-01-03 19:45:16.840 +01:00 [INF] ********This is the service : inboundLogStr after response {"InboundLogId":{"Timestamp":1735929878,"CreationTime":"2025-01-03T18:44:38Z"},"Ip":"::1|::1","CorrelationId":null,"InstitutionId":null,"Level":null,"RequestSystem":null,"APICalled":"AuditTrail API","APIMethod":"/api/v1/UserAuth/ChangeBalanceUser","ImpactUniqueIdentifier":null,"ImpactUniqueidentifierValue":null,"AlternateUniqueIdentifier":null,"AlternateUniqueidentifierValue":null,"RequestDetails":null,"RequestDateTime":"2025-01-03T19:44:38.8998573Z","ResponseDetails":"{\u0022status\u0022:false,\u0022message\u0022:\u0022success\u0022,\u0022data\u0022:\u002250 debited from cinfotech account\u0022}","ResponseDateTime":"0001-01-01T00:00:00","OutboundLogs":null,"ExceptionDetails":null}
 2025-01-03 19:45:16.853 +01:00 [INF] Request finished HTTP/2 PUT https://localhost:7018/api/v1/UserAuth/ChangeBalanceUser?username=cinfotech&amount=50 - 200 null application/json; charset=utf-8 37961.8508ms
+2025-01-03 20:55:59.315 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-03 20:56:00.774 +01:00 [INF] Configured endpoint book-service, Consumer: UserAuthManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 20:56:01.348 +01:00 [INF] Configured endpoint payment-service, Consumer: UserAuthManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 20:56:03.244 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2025-01-03 20:56:03.421 +01:00 [INF] Now listening on: https://localhost:7018
+2025-01-03 20:56:03.769 +01:00 [INF] Now listening on: http://localhost:5204
+2025-01-03 20:56:05.956 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-03 20:56:05.962 +01:00 [INF] Hosting environment: Development
+2025-01-03 20:56:05.969 +01:00 [INF] Content root path: C:\cinfotech\BookManagementService\UserAuthManagementService.API\UserAuthManagementService.API
+2025-01-03 20:56:06.510 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7018/swagger/index.html - null null
+2025-01-03 20:56:12.140 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7018/swagger/index.html - 200 null text/html;charset=utf-8 5649.0696ms
+2025-01-03 20:56:12.175 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-03 20:56:12.238 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7018/_vs/browserLink - null null
+2025-01-03 20:56:12.280 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7018/_framework/aspnetcore-browser-refresh.js - 200 13794 application/javascript; charset=utf-8 105.4911ms
+2025-01-03 20:56:12.699 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7018/_vs/browserLink - 200 null text/javascript; charset=UTF-8 460.9864ms
+2025-01-03 20:56:13.089 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - null null
+2025-01-03 20:56:13.858 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7018/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 768.7342ms

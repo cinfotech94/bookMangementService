@@ -1,0 +1,10 @@
+2025-01-03 21:05:59.992 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-03 21:06:02.306 +01:00 [INF] Configured endpoint book-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 21:06:02.680 +01:00 [INF] Configured endpoint user-service, Consumer: PaymentPurchaseManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 21:06:04.780 +01:00 [INF] Now listening on: https://localhost:7042
+2025-01-03 21:06:04.789 +01:00 [INF] Now listening on: http://localhost:5289
+2025-01-03 21:06:05.119 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-03 21:06:05.130 +01:00 [INF] Hosting environment: Development
+2025-01-03 21:06:05.135 +01:00 [INF] Content root path: C:\cinfotech\BookManagementService\PaymentPurchaseManagementService.API\PaymentPurchaseManagementService.API
+2025-01-03 21:06:05.158 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2025-01-03 21:06:06.598 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7042/swagger/index.html - null null
