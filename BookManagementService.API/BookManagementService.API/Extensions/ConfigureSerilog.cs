@@ -20,7 +20,7 @@ namespace ThirdPartyCardAPIs.API.Extensions
 
                 Log.Logger = new LoggerConfiguration()
                     .WriteTo.Console()  // Console output (optional)
-                    .WriteTo.File("logs/BookUserManagement-log-{Date}.txt", rollingInterval: RollingInterval.Day, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)  // File logging
+                    .WriteTo.File("logs/BookUserManagement4Book-log-{Date}.txt", rollingInterval: RollingInterval.Day, restrictedToMinimumLevel: Serilog.Events.LogEventLevel.Information)  // File logging
                     .WriteTo.Elasticsearch(
                         new ElasticsearchSinkOptions(new Uri(elasticsearchUri))
                         {

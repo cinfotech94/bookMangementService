@@ -32,7 +32,7 @@ namespace BookManagementService.Service.MainServices.Implementation
 
             try
             {
-                var (book, bookRxception) = await _bookRepository.GetBookByIdAsync(Guid.Parse(cart.bookId));
+                var (book, bookRxception) = await _bookRepository.GetBookByIdAsync(cart.bookId);
                 if (book==null)
                 {
                     response.message = "book not exist";
@@ -184,7 +184,7 @@ namespace BookManagementService.Service.MainServices.Implementation
                     var books=new List<BookDTO>();
                     foreach (var cart in checks.data)
                     {
-                       var (book,bookException)=await _bookRepository.GetBookByIdAsync(Guid.Parse(cart.bookId));
+                       var (book,bookException)=await _bookRepository.GetBookByIdAsync(cart.bookId);
                         books.Add(book);
                     }
                     await _loggingService.LogInformation($"No book in cart. {username}", caller, correlationId);

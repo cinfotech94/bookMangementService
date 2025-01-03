@@ -17,7 +17,7 @@ namespace BookManagementService.API.Controllers
         {
             _cartService = cartService;
         }
-        [HttpPost("AddBookToPurchaseAsync")]
+        [HttpPost("AddBookToCartAsync")]
         public async Task<IActionResult> AddBookToCartAsync(CartDTO cartDTO)
         {
             Guid correlationId = Guid.NewGuid();

@@ -54,10 +54,10 @@ namespace UserAuthManagementService.Service.MainServices
             _jwtTokenService = jwtTokenService;
             _auditRepository = auditRepository;
         }
-        public async Task< GenericResponse<ClaimsPrincipal> > ConfimTokenToken(ConfirmTokenRequest request, string caller,string corelationId)
+        public async Task< GenericResponse<string> > ConfimTokenToken(ConfirmTokenRequest request, string caller,string corelationId)
         {
             caller += "||" + nameof(ConfimTokenToken);
-            GenericResponse<ClaimsPrincipal> response = new GenericResponse<ClaimsPrincipal>();
+            GenericResponse<string> response = new GenericResponse<string>();
             try
             {
                 var confrimation = _jwtTokenService.ValidateToken(request.Token, caller, corelationId);
@@ -68,14 +68,14 @@ namespace UserAuthManagementService.Service.MainServices
                     {
                         response.message = "CHECK YOUR USERNAME";
                         response.status = false;
-                        response.data = null;
+                        response.data = string.Empty;
                         await _loggingService.LogWarning($"Token confirmation is not succesful{request.username}", caller, corelationId);
                     }
                     else
                     {
                         response.message = "success";
                         response.status = true;
-                        response.data = confrimation;
+                        response.data = username;
                     await _loggingService.LogInformation($"Token confirmation is succesful{request.username}", caller, corelationId);
                     }
                 }
@@ -83,7 +83,7 @@ namespace UserAuthManagementService.Service.MainServices
                 {
                     response.message = "failed";
                     response.status = false;
-                    response.data = null;
+                    response.data = string.Empty;
                     await _loggingService.LogWarning($"Token confirmation is faile{request.username}", caller, corelationId);
 
                 }
@@ -93,7 +93,7 @@ namespace UserAuthManagementService.Service.MainServices
                 _loggingService.LogError($"Token confirmation failed", caller, ex, corelationId);
                 response.message = ex.Message;
                 response.status = false;
-                response.data = null;
+                response.data = string.Empty;
             }
             return response;
         }
@@ -435,8 +435,8 @@ namespace UserAuthManagementService.Service.MainServices
                     }
                     else
                     {
-                        var decyptPassword = _encryptionService.Decrypt(oldPassword, user.username + _cardServiceencryptkey);
-                        if (decyptPassword == user.password)
+                        var decyptPassword = _encryptionService.Decrypt(user.password, user.username + _cardServiceencryptkey);
+                        if (decyptPassword == oldPassword)
                         {
                             user.password = _encryptionService.Encrypt(newPassword, username + _cardServiceencryptkey);
                             //await _mailerService.SendEmail("Sterling Card Services", user.email, "Resetting Your Password", $"Your password has been changed succesfully. we advice you toplease change the password to your custom password and thsis will expirei the next 2 hours");
@@ -545,7 +545,7 @@ namespace UserAuthManagementService.Service.MainServices
                 var audit = new Audit()
                 {
                     ip=request.ip,
-                    correlationId=request.correlationId,
+                    correlationId=request.correlationId.ToString(),
                     type=request.type,
                     description =request.description,
                      user =user.id.ToString(),

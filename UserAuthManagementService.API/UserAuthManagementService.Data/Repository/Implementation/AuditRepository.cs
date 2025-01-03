@@ -26,7 +26,7 @@ namespace UserAuthManagementService.Data.Repository.Implementation
             _context = context;
         }
 
-        public async Task<(Guid, Exception)> CreateAudit(Audit audit)
+        public async Task<(string, Exception)> CreateAudit(Audit audit)
         {
             try
             {
@@ -35,11 +35,11 @@ namespace UserAuthManagementService.Data.Repository.Implementation
 
                 // Insert the audit document into MongoDB
                 await _context.Audits.InsertOneAsync(audit);
-                return (audit.auditId,null);
+                return (audit.auditId.ToString(),null);
             }
             catch (Exception ex)
             {
-                return (Guid.Empty, ex);
+                return (ObjectId.Empty.ToString(), ex);
             }
         }
     }

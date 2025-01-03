@@ -79,7 +79,7 @@ namespace UserAuthManagementService.API.Controllers
             var response = await _userServices.AuditUser(auditDTO, nameof(UserAuthController), correlationId.ToString());
             return Ok(response);
         }
-        [HttpPut("AuditUser")]
+        [HttpPut("ChangeBalanceUser")]
         public async Task<IActionResult> ChangeBalanceUser(string username, double amount)
         {
             Guid correlationId = Guid.NewGuid();

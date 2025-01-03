@@ -70,54 +70,6 @@ namespace PaymentPurchaseManagementService.Data.Repository.Implementation
                 return (null, ex);
             }
         }
-        private async Task GetCachedData()
-        {
-            string cacheKey = "purchasedatabseExist";
-            if (!_memoryCache.TryGetValue(cacheKey, out string cachedData))
-            {
-                // Data not in cache, fetch it
-                    try
-                    {
-                        using (var connection = _context.CreateConnection())
-                        {
-                            connection.Open();
-
-                            // Step 2: Create Carts table if it does not exist
-                            var createCartsTableQuery = @"
-                                DO $$
-                                BEGIN
-                                    IF NOT EXISTS (
-                                        SELECT 1 
-                                        FROM information_schema.tables 
-                                        WHERE table_name = 'purchases' AND table_schema = 'public'
-                                    ) THEN
-                                        CREATE TABLE purchases (
-                                            Username VARCHAR(255),
-                                            BookId UUID,
-                                            PRIMARY KEY (Username, BookId)
-                                        );
-                                    END IF;
-                                END $$;";
-
-                            await connection.ExecuteAsync(createCartsTableQuery);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
-                    }
-                cachedData = "yes";
-
-                // Set cache options
-                var cacheEntryOptions = new MemoryCacheEntryOptions()
-                    .SetSlidingExpiration(TimeSpan.FromMinutes(5)) // Refresh expiration after each access
-                    .SetAbsoluteExpiration(TimeSpan.FromHours(1)); // Cache expires after 1 hour
-
-                // Save data in cache
-                _memoryCache.Set(cacheKey, cachedData, cacheEntryOptions);
-            }
-        }
-
     }
 
 }

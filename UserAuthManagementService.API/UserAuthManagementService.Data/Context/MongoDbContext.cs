@@ -25,7 +25,7 @@ public class MongoDbContext
         // Logic to select the database collection based on the request path
         var database = mongoClient.GetDatabase(_configuration["MongoDbSettings:DatabaseName"]);
         // Determine the collection name based on the URL
-        string collectionName = "UserAuthManagementService";
+        string collectionName = "BookManagementService4User";
 
         // Assign the collection based on the dynamically determined name
         InboundLogs = database.GetCollection<InboundLog>(collectionName+"inboundLogs");

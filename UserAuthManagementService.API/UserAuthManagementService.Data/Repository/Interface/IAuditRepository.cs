@@ -7,6 +7,6 @@ namespace UserAuthManagementService.Data.Repository.Interface
 {
     public interface IAuditRepository
     {
-        Task<(Guid, Exception)> CreateAudit(Audit Audit);
+        Task<(string, Exception)> CreateAudit(Audit Audit);
     }
 }

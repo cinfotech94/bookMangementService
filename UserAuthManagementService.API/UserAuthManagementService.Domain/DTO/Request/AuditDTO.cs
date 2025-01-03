@@ -11,7 +11,7 @@ public class AuditDTO
     public string type { get; set; }
     public string description { get; set; }
     public DateTime happenOn { get; set; } = DateTime.Now;
-    public string userEmail { get;  set; }
+    public string userEmail { get; set; }
 
     public void PopulateAuditData(IHttpContextAccessor httpContextAccessor)
     {
@@ -26,9 +26,9 @@ public class AuditDTO
 
     private void InitializeIp(IHttpContextAccessor httpContextAccessor)
     {
-        var context = httpContextAccessor.HttpContext;
-        if(ip== null)
+        if (string.IsNullOrEmpty(ip))
         {
+            var context = httpContextAccessor.HttpContext;
             ip = context?.Request.Headers["X-Forwarded-For"].FirstOrDefault()
      ?? context?.Connection.RemoteIpAddress?.ToString()
      ?? "Unknown IP";
@@ -37,10 +37,11 @@ public class AuditDTO
     }
     private void InitializeUser(IHttpContextAccessor httpContextAccessor)
     {
-        var context = httpContextAccessor.HttpContext;
-        var userClaims = context?.User;
-        if (userEmail == null)
+        if (string.IsNullOrEmpty(userEmail))
         {
+            var context = httpContextAccessor.HttpContext;
+            var userClaims = context?.User;
+
             userEmail = userClaims?.FindFirst(ClaimTypes.Name)?.Value ?? "Unknown User";
         }
     }

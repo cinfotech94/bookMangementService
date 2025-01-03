@@ -1,0 +1,25 @@
+2025-01-03 16:15:34.061 +01:00 [INF] User profile is available. Using 'C:\Users\DECAGON\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-03 16:15:35.437 +01:00 [INF] Configured endpoint payment-service, Consumer: BookManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 16:15:35.467 +01:00 [INF] Configured endpoint user-service, Consumer: BookManagementService.Service.RabbitMQServices.RequestConsumer
+2025-01-03 16:15:36.858 +01:00 [INF] Now listening on: https://localhost:7041
+2025-01-03 16:15:36.861 +01:00 [INF] Now listening on: http://localhost:5288
+2025-01-03 16:15:37.030 +01:00 [INF] Bus started: "rabbitmq://localhost:0/"
+2025-01-03 16:15:37.127 +01:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-03 16:15:37.130 +01:00 [INF] Hosting environment: Development
+2025-01-03 16:15:37.136 +01:00 [INF] Content root path: C:\cinfotech\BookManagementService\BookManagementService.API\BookManagementService.API
+2025-01-03 16:15:39.310 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2025-01-03 16:15:42.278 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 2984.4725ms
+2025-01-03 16:15:42.323 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-03 16:15:42.323 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2025-01-03 16:15:42.580 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 257.7214ms
+2025-01-03 16:15:42.835 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 511.9883ms
+2025-01-03 16:15:43.007 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2025-01-03 16:15:44.351 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 1343.4628ms
+2025-01-03 16:22:37.454 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/index.html - null null
+2025-01-03 16:22:37.640 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/index.html - 200 null text/html;charset=utf-8 188.4855ms
+2025-01-03 16:22:37.812 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - null null
+2025-01-03 16:22:37.903 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/_vs/browserLink - null null
+2025-01-03 16:22:38.468 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_framework/aspnetcore-browser-refresh.js - 200 13786 application/javascript; charset=utf-8 672.1826ms
+2025-01-03 16:22:38.568 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/_vs/browserLink - 200 null text/javascript; charset=UTF-8 665.8879ms
+2025-01-03 16:22:38.690 +01:00 [INF] Request starting HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - null null
+2025-01-03 16:22:38.791 +01:00 [INF] Request finished HTTP/2 GET https://localhost:7041/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 101.4457ms

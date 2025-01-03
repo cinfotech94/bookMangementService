@@ -21,4 +21,8 @@ public class DappperDbConnection
     {
         return new NpgsqlConnection(_connectionString);
     }
+    public IDbConnection CreateMasterConnection()
+    {
+        return new NpgsqlConnection(_connectionString); // Replace with your DB provider
+    }
 }

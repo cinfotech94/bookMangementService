@@ -21,6 +21,6 @@ namespace UserAuthManagementService.Service.MainServices
         Task<GenericResponse<string>> CreateUser(UserDto createUser, string caller, string corelationId);
         Task<GenericResponse<string>> DeleteUser(string id, string caller, string corelationId);
         Task<GenericResponse<string>> AuthenticateUser(LoginRequest request, string caller, string corelationId);
-        Task<GenericResponse<ClaimsPrincipal>> ConfimTokenToken(ConfirmTokenRequest request, string caller, string corelationId);
+        Task<GenericResponse<string>> ConfimTokenToken(ConfirmTokenRequest request, string caller, string corelationId);
     }
 }

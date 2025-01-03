@@ -28,7 +28,7 @@ namespace BookManagementService.Data.Repository.Implementation
         {
             try
             {
-                await GetCachedData();
+                
 
                 var query = @"INSERT INTO books (id, title, ISBN, author, publicationYear, genre, quantity, price, pages, description, category, noClick, noOfPurchase, noOfCart)
                       VALUES (@Id, @Title, @ISBN, @Author, @PublicationYear, @Genre, @Quantity, @Price, @Pages, @Description, @Category, @NoClick, @noOfPurchase, @NoOfCart)";
@@ -66,7 +66,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new BookDTO();
             try
             {
-                await GetCachedData();
+                
 
                 var query = "SELECT * FROM books WHERE id = @Id";
                 using (var connection = _context.CreateConnection())
@@ -87,7 +87,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new BookDTO();
             try
             {
-                await GetCachedData();
+                
 
                 var query = "SELECT * FROM books WHERE ISBN = @ISBN";
                 using (var connection = _context.CreateConnection())
@@ -107,7 +107,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new List<BookDTO>();
             try
             {
-                await GetCachedData();
+                
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -145,7 +145,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new List<BookDTO>();
             try
             {
-                await GetCachedData();
+                
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -190,7 +190,7 @@ namespace BookManagementService.Data.Repository.Implementation
             var response = new List<BookDTO>();
             try
             {
-                await GetCachedData();
+                
 
                 string order = ascending ? "ASC" : "DESC";
                 var query = $@"SELECT * FROM books 
@@ -225,7 +225,7 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> UpdateBookAsync(BookDTO book)
         {
-            await GetCachedData();
+            
 
             int response = 0;
             try
@@ -233,7 +233,7 @@ namespace BookManagementService.Data.Repository.Implementation
                 var query = @"UPDATE books
                       SET title = @Title, ISBN = @ISBN, author = @Author, publicationYear = @PublicationYear, genre = @Genre,
                           quantity = @Quantity, price = @Price, pages = @Pages, description = @Description, category = @Category,
-                          noClick = @NoClick, noOfPurchase = @noOfPurchase, noOfCart = @NoOfCart
+                          noClick = @NoClick, noOfPurchase = @NoOfPurchase, noOfCart = @NoOfCart
                       WHERE ISBN = @ISBN OR id = @Id";
                 using (var connection = _context.CreateConnection())
                 {
@@ -252,6 +252,7 @@ namespace BookManagementService.Data.Repository.Implementation
                         book.noClick,
                         book.noOfPurchase,
                         book.noOfCart,
+                        Id=book.id
                     });
                 }
                 return (response, null);
@@ -264,7 +265,7 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> DeleteBookAsync(Guid id)
         {
-            await GetCachedData();
+            
 
             int response = 0;
             try
@@ -284,7 +285,7 @@ namespace BookManagementService.Data.Repository.Implementation
 
         public async Task<(int, Exception)> DeleteBookByISBNAsync(string isbn)
         {
-            await GetCachedData();
+            
 
             var response = 0;
             try
@@ -300,68 +301,6 @@ namespace BookManagementService.Data.Repository.Implementation
             {
                 return (response, ex);
             }
-        }
-        private async Task GetCachedData()
-        {
-            string cacheKey = "BookdatabseExist2";
-            if (!_memoryCache.TryGetValue(cacheKey, out string cachedData))
-            {
-
-                // Step 1: Create Books table if it does not exist
-                var createBooksTableQuery = @"
-                        CREATE TABLE IF NOT EXISTS Books (
-                            Id UUID PRIMARY KEY,
-                            Title VARCHAR(255),
-                            ISBN VARCHAR(255),
-                            Author VARCHAR(255),
-                            PublicationYear VARCHAR(4),
-                            TimeAdded TIMESTAMP,
-                            Genre VARCHAR(255),
-                            Quantity INT DEFAULT 1,
-                            Price FLOAT,
-                            Pages INT,
-                            Description VARCHAR(1000),
-                            Category VARCHAR(255),
-                            NoClick INT DEFAULT 0,
-                            NoOfPurchase INT DEFAULT 0,
-                            NoOfCart INT DEFAULT 0
-                        );";
-
-                var createCartsTableQuery = @"
-                        CREATE TABLE IF NOT EXISTS Carts (
-                            Username VARCHAR(255),
-                            BookId UUID,
-                            PRIMARY KEY (Username, BookId)
-                        );";
-
-                try
-                {
-                    using (var connection = _context.CreateConnection())
-                    {
-
-                        await connection.ExecuteAsync(createBooksTableQuery);
-                        await connection.ExecuteAsync(createCartsTableQuery);
-
-                        // If execution reaches here without exceptions, proceed to cache the result
-
-                            cachedData = "yes";
-
-                            var cacheEntryOptions = new MemoryCacheEntryOptions()
-                                .SetSlidingExpiration(TimeSpan.FromDays(365))
-                                .SetAbsoluteExpiration(TimeSpan.FromDays(500));
-
-                            _memoryCache.Set(cacheKey, cachedData, cacheEntryOptions);
-
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
-                }
-
-
-            }
-
         }
     }
 }

@@ -9,6 +9,6 @@ namespace BookManagementService.Domain.DTO.Request
     public class CartDTO
     {
         public string username { get; set; }
-        public string bookId { get; set; }
+        public Guid bookId { get; set; }
     }
 }
