@@ -108,7 +108,7 @@ jobs:
           to: ${{ secrets.RECIPIENT_EMAIL }}
           from: ${{ secrets.GMAIL_USERNAME }}
           body: |
-            The build for commit ${{ github.sha }} has completed with status: ${{ job.status }}.
+            The build a for commit ${{ github.sha }} has completed with status: ${{ job.status }}.
             Repository: ${{ github.repository }}
             Branch: ${{ github.ref }}
             Commit Message: ${{ github.event.head_commit.message }}
